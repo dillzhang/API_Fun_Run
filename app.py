@@ -3,10 +3,14 @@ import utils
 
 app = Flask(__name__)
 
-@app.route('/')
-@app.route('/home')
+
+@app.route('/', methods=['GET', 'POST'])
+@app.route('/home', methods=['GET', 'POST'])
 def home():
-    return "home"
+    if request.method == "POST":
+        return render_template("response.html")
+    else:
+        return render_template("home.html")
 
 
 if __name__ == "__main__":
