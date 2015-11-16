@@ -8,7 +8,10 @@ app = Flask(__name__)
 @app.route('/home', methods=['GET', 'POST'])
 def home():
     if request.method == "POST":
-        return render_template("response.html")
+        line = request.form["line"]
+        meme = request.form["meme"]
+        final = utils.generate(line, meme)
+        return render_template("response.html", image = final)
     else:
         return render_template("home.html")
 
