@@ -9,19 +9,21 @@ api_key = "frXllSpx5amshUV29IPWvrEiIk3Tp1qJGikjsnhgwldpgnfGEO"
 # Translating API Links
 yoda = "https://yoda.p.mashape.com/yoda?sentence=%s"
 l33t = "https://montanaflynn-l33t-sp34k.p.mashape.com/encode?text=%s"
-translator = [yoda, l33t]
+translator = [l33t]
 
 # Meme Generator Link
 memeURL = "http://apimeme.com/meme?meme=%(mem)s&top=%(top)s&bottom=%(bottom)s"
-memes = ["Advice+Yoda", "Grandma+Finds+The+Internet", "Condescending+Wonka", "Grumpy+Cat+Table", "Hipster+Barista"]
+memes = ["Grandma+Finds+The+Internet", "Condescending+Wonka", "Grumpy+Cat+Table", "Hipster+Barista"]
+
+fillertexts = ["1'll+WreCk+y0u+m8t3", "That's+Nice,+tell+me+more", "I+hate+you", "Been+there,+done+that"] 
 
 unirest.default_header('X-Mashape-Key', api_key)
 
 
 def generate(line, meme):
-    if (meme == 0 or meme == 1):
+    if (meme == 0):
         line = translate(line, meme)
-    return memeURL%{'bottom': "Filler", 'mem': memes[meme], 'top': line}
+    return memeURL%{'bottom': fillertexts[meme], 'mem': memes[meme], 'top': line}
 
 
 def translate(line, meme):
