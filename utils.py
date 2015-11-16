@@ -13,14 +13,15 @@ translator = [yoda, l33t]
 
 # Meme Generator Link
 memeURL = "http://apimeme.com/meme?meme=%(mem)s&top=%(top)s&bottom=%(bottom)s"
+memes = ["Advice+Yoda", "Grandma+Finds+The+Internet", "Condescending+Wonka", "Grumpy+Cat+Table", "Hipster+Barista"]
 
 unirest.default_header('X-Mashape-Key', api_key)
 
 
 def generate(line, meme):
     if (meme == 0 or meme == 1):
-        nLine = translate(line, meme)
-    return memeURL%{'bottom': "Filler", 'mem': meme, 'top': line})
+        line = translate(line, meme)
+    return memeURL%{'bottom': "Filler", 'mem': memes[meme], 'top': line}
 
 
 def translate(line, meme):
