@@ -11,14 +11,15 @@ yoda = "https://yoda.p.mashape.com/yoda?sentence=%s"
 l33t = "https://montanaflynn-l33t-sp34k.p.mashape.com/encode?text=%s"
 
 # Meme Generator Link
-meme = "https://ronreiter-meme-generator.p.mashape.com/meme?bottom=%s&font=%s&font_size=%s&meme=%s&top=%s"
-
+memeURL = "http://apimeme.com/meme?meme=%(mem)s&top=%(top)s&bottom=%(bottom)s"
 
 unirest.default_header('X-Mashape-Key', api_key)
 
 
 def generate(line, meme):
-    return 0
+    if (meme == 0 or meme == 1):
+        nLine = translate(line, meme)
+    return memeURL%{'bottom': "Filler", 'mem': meme, 'top': line})
 
 
 def translate(line, meme):
