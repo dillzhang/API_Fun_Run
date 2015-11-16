@@ -9,6 +9,7 @@ api_key = "frXllSpx5amshUV29IPWvrEiIk3Tp1qJGikjsnhgwldpgnfGEO"
 # Translating API Links
 yoda = "https://yoda.p.mashape.com/yoda?sentence=%s"
 l33t = "https://montanaflynn-l33t-sp34k.p.mashape.com/encode?text=%s"
+translator = [yoda, l33t]
 
 # Meme Generator Link
 memeURL = "http://apimeme.com/meme?meme=%(mem)s&top=%(top)s&bottom=%(bottom)s"
@@ -23,4 +24,7 @@ def generate(line, meme):
 
 
 def translate(line, meme):
-    return "String"
+    line = line.replace(" ", "+")
+    print line
+    stringer = unirest.get(translator[int(meme)] % (line), headers = {"Accept": "text/plain"})
+    return stringer.body
