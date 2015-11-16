@@ -15,7 +15,7 @@ translator = [l33t]
 memeURL = "http://apimeme.com/meme?meme=%(mem)s&top=%(top)s&bottom=%(bottom)s"
 memes = ["Grandma+Finds+The+Internet", "Condescending+Wonka", "Grumpy+Cat+Table", "Hipster+Barista"]
 
-fillertexts = ["1'll+WreCk+y0u+m8t3", "That's+Nice,+tell+me+more", "I+hate+you", "Been+there,+done+that"] 
+fillertexts = ["1'll+wReCk+y0u+m8t3", "That's+Nice,+tell+me+more", "I+hate+you", "Been+there,+done+that"] 
 
 unirest.default_header('X-Mashape-Key', api_key)
 
