@@ -25,5 +25,5 @@ def generate(line, meme):
 def translate(line, meme):
     line = line.replace(" ", "+")
     print line
-    stringer = unirest.get(translator[int(meme)] % (line), headers = {"Accept": "text/plain"})
+    stringer = unirest.get(translator[meme] % (line), headers = {"Accept": "text/plain"})
     return stringer.body

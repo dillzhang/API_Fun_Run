@@ -10,7 +10,7 @@ def home():
     if request.method == "POST":
         line = request.form["line"]
         meme = request.form["meme"]
-        final = utils.generate(line, meme)
+        final = utils.generate(line,int(meme))
         return render_template("response.html", image = final)
     else:
         return render_template("home.html")
